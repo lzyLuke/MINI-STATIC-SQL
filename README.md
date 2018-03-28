@@ -54,8 +54,8 @@ Sample/largeData/input/db 中有两个文件 `index_info.txt`和`schema.txt`
 
 对于`schema.txt`
 >Sailors A B C
-Boats D E F
-Reserves G H
+>Boats D E F
+>Reserves G H
 
 代表某个表中的各列的名称。
 
