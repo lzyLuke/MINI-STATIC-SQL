@@ -33,7 +33,10 @@ SELECT * FROM Sailors S, Reserves R, Boats B WHERE S.A = R.G AND R.H = B.D ORDER
 > * 第三行是临时用来排序的路径
 > * 第四行是是否建立索引（0=no，1=yes）
 > * 第五行是是否执行SQL语句（0=no，1=yes）
+
 Notice: 如果想要在本机上执行此文件，请检查第一二三行的路径是当前interpreter_config_file.txt的绝对路径下的input、output、temp文件夹路径。
+Notice2: 需要导入jsqlparser中的jsql外部parser包，作用是可以方便的提取SELECT语句中的String字段。
+
 ### 2.查询计划配置文件
 SampleTest/largeData/input文件夹中。文件`plan_builder_config`有三个参数
 > * 第一行来指示Join的计划。第一行有一或者两个数字，如果 第一个数字是0则只有一个数字，表示使用Tuple Nested Loop Join（最原始一条一条进行比较的多表相加）。如果第一个数字为1，则表示使用Block Nested Loop Join（在复杂的查询一侧一次性读一定buffer大小的Tuple，在简单的查询侧与buffer中的tuple进行连接。），第二个数字则为buffer的大小（1 buffer = 4028bytes）。如果第一个数字为2，则表示使用Sort Merge Join（只在等于号情况下有效）， 先对Join的两侧进行排序后，再采取Join
