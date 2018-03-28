@@ -1,0 +1,5 @@
+/Users/luke/Documents/GitHub/MINISQL/MINI-STATIC-SQL/sampleTest/largeData1/input
+/Users/luke/Documents/GitHub/MINISQL/MINI-STATIC-SQL/sampleTest/largeData1/output
+/Users/luke/Documents/GitHub/MINISQL/MINI-STATIC-SQL/sampleTest/largeData1/temp
+1
+1
