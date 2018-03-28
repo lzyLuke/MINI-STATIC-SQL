@@ -71,7 +71,7 @@ Reserves G H
 ### 5. 查询计划
 EG：`SELECT * FROM R, S, T WHERE R.A = 1 AND R.B = S.C AND T.G < 5 AND T.G = S.H`
 逻辑查找符树如下：
-
+![LogicOperatorTree](https://github.com/lzyLuke/MINI-STATIC-SQL/blob/master/pic/LogicOperatorTree.png)
 
 首先先查找FROM中有三个相关联的表R，S，T。然后再构建相关WHERE表达式。
 对于R，与之前表有关联的只有R.A=1；对于S，与之前表有关联（与R表有关的）的涉及有R.B=S.C；对于T，与之前表有关联的（R或S表或R，S均有)的是T.G=S.H，再加上一个自己的SelectOprator：T.G<5。再在最顶上再放置一个ProjectOperator用来选择Select后面的具体表项（由于此处是*，所以不需要有ProjectOperator也行）。
