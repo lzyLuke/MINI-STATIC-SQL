@@ -48,6 +48,7 @@ SampleTest/largeData/input文件夹中。文件`plan_builder_config`有三个参
 Sample/largeData/input/db 中有两个文件 `index_info.txt`和`schema.txt`
 对于`index_info.txt`索引建立文件,例如：
 >Boats E 0 10
+
 >Sailors A 0 15
 
 表示Boats表中的E属性 建立非聚簇的索引（如果是1代表聚簇索引），树的大小(order)为10（每个数节点容量最大关键字为2*order）。Sailor表中的A属性 建立非聚簇的索引，树的order为15。
