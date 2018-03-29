@@ -39,8 +39,8 @@ Notice2: 需要导入jsqlparser中的jsql外部parser包，作用是可以方便
 
 ### 2.查询计划配置文件
 SampleTest/largeData/input文件夹中。文件`plan_builder_config`有三个参数
-> * 第一行来指示Join的计划。第一行有一或者两个数字，如果 第一个数字是0则只有一个数字，表示使用Tuple Nested Loop Join（最原始一条一条进行比较的多表相加）。如果第一个数字为1，则表示使用Block Nested Loop Join（在复杂的查询一侧一次性读一定buffer大小的Tuple，在简单的查询侧与buffer中的tuple进行连接。），第二个数字则为buffer的大小（1 buffer = 4028bytes）。如果第一个数字为2，则表示使用Sort Merge Join（只在等于号情况下有效）， 先对Join的两侧进行排序后，再采取Join
-> * 第二行是来指示排序的计划。如果第一个数字为0，则表示使用内存排序。如果第一个数字为1，则代表使用外排序，接下来还有第二个数字来指示排序的Buffer的大小。（1 Buffer Page = 4028bytes）
+> * 第一行来指示Join的计划。第一行有一或者两个数字，如果 第一个数字是0则只有一个数字，表示使用Tuple Nested Loop Join（最原始一条一条进行比较的多表相加）。如果第一个数字为1，则表示使用Block Nested Loop Join（在复杂的查询一侧一次性读一定buffer大小的Tuple，在简单的查询侧与buffer中的tuple进行连接。），第二个数字则为buffer的大小（1 buffer = 4096bytes）。如果第一个数字为2，则表示使用Sort Merge Join（只在等于号情况下有效）， 先对Join的两侧进行排序后，再采取Join
+> * 第二行是来指示排序的计划。如果第一个数字为0，则表示使用内存排序。如果第一个数字为1，则代表使用外排序，接下来还有第二个数字来指示排序的Buffer的大小。（1 Buffer Page = 4096bytes）
 > * 第三行是用来指示建立聚簇（1）和非聚簇索引（0）。
 
 剩余一个queries.sql文件内存sql查询语句。第n行的sql对应output文件夹中的queryn输出结果。
